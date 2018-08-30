@@ -174,37 +174,19 @@
     */
   });
 });
-		function myMap() 
-		{
-
-			var mapOptions = {
-				center: new google.maps.LatLng(48.768534,44.4883543),
-				zoom: 13,
-				styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":100}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":90}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":50},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":25}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":7}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
-		   		}
-			
-			/*var mapElement = document.getElementById('map');
-			var addresses = ['Volgograd'];
-
-			for (var x = 0; x < addresses.length; x++) 
-			{
-				$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) 
-				{
-					var p = data.results[0].geometry.location
-					var latlng = new google.maps.LatLng(48.768452, 44.490511);
-					new google.maps.Marker(
-					{
-						position: latlng,
-						map: map,
-						icon: 'img/loc.png'
-					});
-				});
-			}
-			*/
-			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 		}
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-  
+ 
+  <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript">
+  var myMap;
+  ymaps.ready(init); // Ожидание загрузки API с сервера Яндекса
+  function init () {
+    myMap = new ymaps.Map("map", {
+      center: [48.768452, 44.490511], // Координаты центра карты
+      zoom: 10 // Zoom
+    });
+  }
+</script>
   </body>
 </html>
